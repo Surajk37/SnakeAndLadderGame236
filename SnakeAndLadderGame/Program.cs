@@ -22,11 +22,20 @@ namespace SnakeAndLadderGame
             }
 
         } 
+        public static void RollsDie()
+        {
+            // UC2-To Get Value Between 1 To 6 Using Random
+            int a =0;
+            Random r = new Random();
+            a = r.Next(1, 7);           
+            Console.WriteLine("Dice Value is :" + a);
+            return ;
+        }
         public static void Main(string[] args)
         {
             Console.WriteLine("\t\tWelcome To Snake And Ladder Program\n");
             Console.WriteLine("Select a option from list");
-            Console.WriteLine("1.UC-1");
+            Console.WriteLine("1.UC-1 \n2.UC-2");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
             {
@@ -34,6 +43,10 @@ namespace SnakeAndLadderGame
                     Console.WriteLine("\tUC1-Start of Game");
                     Program pro = new Program();
                     pro.StartPlayingPosition();
+                    break;
+                    case 2:
+                    Console.WriteLine("\tUC2-Player rolls a die to get a number between 1 to 6");
+                    Program.RollsDie();
                     break;
                 default:
                     Console.WriteLine("Enter a valid option");
