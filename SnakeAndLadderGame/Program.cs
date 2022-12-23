@@ -7,19 +7,17 @@ namespace SnakeAndLadderGame
         const int position = 0;
         public static void StartPlayingPosition(int position)
         {
-            //UC4- Repeat till the Player reaches the winning position 100.
-
-            int currentpos = 0, startpos = 0;
+            int currentpos = 0, startpos = 0, dicecnt = 0;
             const int Won = 100;
             const int NoPlay = 0;
             const int Ladder = 1;
             const int Snake = 2;
-            Random r = new Random();
-            //Loop Will Execute Till 100 Position
+            Random random = new Random();
             while (position < Won)
             {
-                int ran = r.Next(1, 7);
-                int opt = r.Next(0, 3);
+                dicecnt++;//Counter Increments Every Time When Condition Is True
+                int ran = random.Next(1, 7);
+                int opt = random.Next(0, 3);
                 switch (opt)
                 {
                     case NoPlay:
@@ -40,6 +38,9 @@ namespace SnakeAndLadderGame
                                 currentpos = position;
                             }
                         }
+                        int r = random.Next(1, 7);
+                        Console.WriteLine("You're At:" + currentpos);
+                        Console.WriteLine("--------------------------");
                         break;
 
                     case Snake:
@@ -54,10 +55,17 @@ namespace SnakeAndLadderGame
                             currentpos = startpos;
                             currentpos = position;
                         }
+                        Console.WriteLine("You're At:" + currentpos);
+                        Console.WriteLine("--------------------------");
+                        break;
+
+                    default:
+                        Console.WriteLine("You're At:" + position);
                         break;
                 }
             }
-            Console.WriteLine("You're at Final Position Is:" + position);
+            Console.WriteLine("Die Was Rolled For " + dicecnt + " Times");
+            Console.WriteLine("You're Final Position Is:" + position);
         }
 
         public static void Main(string[] args)
