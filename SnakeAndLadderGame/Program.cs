@@ -57,7 +57,7 @@ namespace SnakeAndLadderGame
                         break;
                 }
             }
-            Console.WriteLine("You're Final Position Is:" + position);
+            Console.WriteLine("You're at Final Position Is:" + position);
         }
 
         public static void Main(string[] args)
